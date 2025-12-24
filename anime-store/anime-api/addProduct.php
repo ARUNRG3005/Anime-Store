@@ -10,7 +10,6 @@ if ($conn->connect_error) {
     exit;
 }
 
-/* ---------- VALIDATE INPUT ---------- */
 if (
     !isset($_POST["title"]) ||
     !isset($_POST["price"]) ||
@@ -43,7 +42,6 @@ if (!move_uploaded_file($tmpName, $uploadPath)) {
     exit;
 }
 
-/* ---------- INSERT ---------- */
 $sql = "INSERT INTO products (title, price, image, description)
         VALUES ('$title', '$price', '$imageName', '$description')";
 
@@ -54,3 +52,4 @@ if ($conn->query($sql)) {
 }
 
 $conn->close();
+
